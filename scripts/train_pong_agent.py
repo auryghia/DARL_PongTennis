@@ -8,8 +8,11 @@ import gymnasium as gym
 import numpy as np
 from stable_baselines3 import A2C
 from stable_baselines3.common.atari_wrappers import AtariWrapper
-from stable_baselines3.common.vec_env import DummyVecEnv
-from tqdm import tqdm
+from stable_baselines3.common.vec_env import (
+    DummyVecEnv,
+    VecFrameStack,
+)  # AGGIUNGI VecFrameStack
+from stable_baselines3.common.callbacks import CheckpointCallback
 import time
 from ale_py import ALEInterface
 import ale_py
@@ -21,21 +24,32 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 
-def make_env():
+def make_env(frame_skip=4, terminal_on_life_loss=True):
     env = gym.make("ALE/Pong-v5")
-    env = AtariWrapper(env)
+    env = AtariWrapper(
+        env,
+        frame_skip=frame_skip,
+        terminal_on_life_loss=terminal_on_life_loss,
+        # grayscale_obs=grayscale_obs,  # Importante per lo spazio di osservazione
+        # scale_obs=False,  # Di solito False, CnnPolicy può gestire uint8
+    )
     return env
 
 
 def train_agent(
     env,
-    total_timesteps=1_000_000,
-    save_path="checkpoints/pong_a2c.zip",
+    existing_model=None,
+    total_timesteps=2_500_000,
+    save_path="checkpoints_/pong_a2c.zip",
     checkpoint_interval=100_000,
-    use_gpu: bool = True,  # Aggiunto parametro per controllare l'uso della GPU
+    use_gpu: bool = True,
+    n_stack: int = 4,
 ):
-    log_dir = "checkpoints/a2c_pong_training_logs/"  # Scegli una directory
-    # Determina il device in base al parametro use_gpu e alla disponibilità
+    log_dir = "checkpoints_/a2c_pong_training_logs/"
+    os.makedirs(log_dir, exist_ok=True)
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    model_path = "checkpoints_\pong_a2c_ckpt_1500000.zip"
+
     if use_gpu and torch.cuda.is_available():
         current_device = torch.device("cuda")
         print("Training on GPU.")
@@ -46,36 +60,50 @@ def train_agent(
             print("Training on CPU.")
         current_device = torch.device("cpu")
 
-    model = A2C(
-        "CnnPolicy", env, verbose=1, tensorboard_log=log_dir, device=current_device
-    )  # Imposta verbose=0 per evitare output ridondanti
+    if existing_model:
 
-    # Inizializza la barra di progresso
-    timesteps_per_update = checkpoint_interval
-    num_updates = total_timesteps // timesteps_per_update
-    progress_bar = tqdm(
-        total=total_timesteps, desc="Training Progress", unit="timesteps"
+        model = A2C.load(model_path, env=env, device=current_device)
+        model.num_timesteps = int(model_path.split("_")[-1].split(".")[0])
+        print(f"Resuming training from {model.num_timesteps} timesteps.")
+        print(f"Modello caricato da: {model_path}")
+    else:
+        print("Training new model from scratch.")
+        model = A2C(
+            "CnnPolicy",
+            env,
+            verbose=1,
+            tensorboard_log=log_dir,
+            device=current_device,
+            n_stack=n_stack,
+            # You might want to ensure other A2C parameters are consistent
+            # e.g., learning_rate, n_steps, gamma, etc.
+        )
+
+    checkpoint_base_name = os.path.splitext(os.path.basename(save_path))[0]
+    checkpoint_dir = os.path.dirname(save_path)
+
+    checkpoint_callback = CheckpointCallback(
+        save_freq=checkpoint_interval,
+        save_path=checkpoint_dir,
+        name_prefix=checkpoint_base_name
+        + "_ckpt",  # Saves as pong_a2c_ckpt_XXXX_steps.zip
+        save_replay_buffer=False,  # Typically False for A2C
+        save_vecnormalize=False,  # If you use VecNormalize, set to True
     )
 
-    start_time = time.time()
+    print(f"Starting/Continuing training up to {total_timesteps} total timesteps.")
+    print(
+        f"Checkpoints will be saved every {checkpoint_interval} timesteps in '{checkpoint_dir}' with prefix '{checkpoint_base_name}_ckpt'."
+    )
 
-    for update in range(num_updates):
-        model.learn(total_timesteps=timesteps_per_update, reset_num_timesteps=False)
-
-        progress_bar.update(timesteps_per_update)
-
-        checkpoint_path = (
-            f"{save_path}_checkpoint_{(update + 1) * checkpoint_interval}.zip"
-        )
-        model.save(checkpoint_path)
-        print(f"Checkpoint salvato in: {checkpoint_path}")
-
-    progress_bar.close()  # Chiudi la barra di progresso
-    end_time = time.time()  # Fine del timer
+    model.learn(
+        total_timesteps=total_timesteps,  # This is the target *cumulative* timesteps
+        callback=checkpoint_callback,
+        reset_num_timesteps=False,
+    )
 
     model.save(save_path)
-    print(f"Modello finale salvato in: {save_path}")
-    print(f"Allenamento completato in {end_time - start_time:.2f} secondi.")
+    print(f"Final model saved to {save_path} at {model.num_timesteps} timesteps.")
     return model
 
 
@@ -87,14 +115,12 @@ def collect_observations(
     obs = env.reset()
     for _ in range(num_frames):
         action, _ = model.predict(obs)
-        obs_tensor = torch.tensor(obs[0])  # assuming 1 env
+        obs_tensor = torch.tensor(obs[0])
         obs_list.append(obs_tensor)
 
-        # Encode the observation
         latent = encoder(obs_tensor.unsqueeze(0).float())
         latent_list.append(latent)
 
-        # Decode the latent representation (optional, for validation)
         decoded_obs = decoder(latent).squeeze(0)
 
         obs, _, done, _ = env.step(action)
