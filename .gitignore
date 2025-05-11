@@ -2,4 +2,6 @@ checkpoints_/
 checkpoints_prova2/
 checkpoints/
 models/
+Results_A2C\Pong-v0_A2C_2.5e-05_Actor.h5
+Results_A2C\Pong-v0_A2C_2.5e-05_log.txt
 
