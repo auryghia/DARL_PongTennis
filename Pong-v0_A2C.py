@@ -3,7 +3,7 @@
 
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 import random
 import gym
 import pylab
@@ -55,7 +55,7 @@ def OurModel(input_shape, action_space, lr):
         activation="elu",
         data_format="channels_first",
     )(X)
-    X = Flatten(input_shape=input_shape)(X_input)
+    X = Flatten(data_format="channels_first")(X)
 
     X = Dense(512, activation="elu", kernel_initializer="he_uniform")(X)
     X = Dense(256, activation="elu", kernel_initializer="he_uniform")(X)
@@ -106,27 +106,35 @@ class A2CAgent:
             self.Save_Path, self.path + "_log.txt"
         )  # Path for the log file
 
-        # Create Actor-Critic network model
-        self.Actor, self.Critic = OurModel(
-            input_shape=self.state_size, action_space=self.action_size, lr=self.lr
-        )
-        # Configura la strategia di distribuzione per multi-GPU
+        # Initialize MirroredStrategy BEFORE model creation
         self.strategy = tf.distribute.MirroredStrategy()
         print(
-            f"Numero di dispositivi GPU disponibili per la strategia: {self.strategy.num_replicas_in_sync}"
+            f"Number of devices for MirroredStrategy: {self.strategy.num_replicas_in_sync}"
         )
-
-        with self.strategy.scope():
-            # Crea i modelli Actor e Critic
-            self.Actor, self.Critic = OurModel(
-                input_shape=self.state_size, action_space=self.action_size
+        if self.strategy.num_replicas_in_sync == 0:
+            print(
+                "WARNING: MirroredStrategy found 0 devices. GPU training might not occur."
             )
-            # Compila i modelli all'interno dello scope della strategia
+            # Fallback to default strategy if no GPUs are found by MirroredStrategy
+            # This can happen if TensorFlow doesn't see the GPUs SLURM allocated.
+            self.strategy = tf.distribute.get_strategy()
+        # Create and compile models WITHIN the strategy scope
+        with self.strategy.scope():
+            # Create Actor-Critic network model
+            # This will now correctly use the strategy for distributed training
+            self.Actor, self.Critic = OurModel(
+                input_shape=self.state_size, action_space=self.action_size, lr=self.lr
+            )
             self.Actor.compile(
                 loss="categorical_crossentropy",
                 optimizer=RMSprop(learning_rate=self.lr),
             )
             self.Critic.compile(loss="mse", optimizer=RMSprop(learning_rate=self.lr))
+            print("Actor and Critic models compiled under strategy scope.")
+
+        self.Actor, self.Critic = OurModel(
+            input_shape=self.state_size, action_space=self.action_size, lr=self.lr
+        )
 
         # Initialize log file with headers
         with open(self.log_file_path, "w") as f:

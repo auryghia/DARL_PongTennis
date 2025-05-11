@@ -1,78 +1,33 @@
+
 #!/bin/bash
+#SBATCH --job-name=TrainModel
+#SBATCH --output=slurm_output_%j.out
+#SBATCH --error=slurm_output_%j.err
+#SBATCH --time=08:00:00
+#SBATCH --partition=gpu_a100
+#SBATCH --gres=gpu:2
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1         # 4 GPUs per node
 
-#SBATCH --job-name=pong_a2c_train    # Nome del job
-#SBATCH --nodes=1                    # Numero di nodi richiesti
-#SBATCH --ntasks-per-node=1          # Numero di task per nodo (il tuo script Python è un singolo task)
-#SBATCH --gpus-per-task=4            # Numero di GPU richieste per il task
-#SBATCH --cpus-per-task=16           # Numero di CPU per task (es. 4 CPU per GPU, da adattare)
-#SBATCH --mem=64G                    # Memoria richiesta (es. 64GB, da adattare)
-#SBATCH --time=24:00:00              # Tempo massimo di esecuzione (GG-HH:MM:SS o HH:MM:SS)
-#SBATCH --partition=<NOME_PARTIZIONE_GPU_SNELLIUS>  # IMPORTANTE: Sostituisci con la partizione GPU corretta su Snellius!
-#SBATCH --output=pong_training_output_%j.txt       # File di output standard (%j è l'ID del job)
-#SBATCH --error=pong_training_error_%j.txt        # File di errore standard
 
-# --- Configurazione dell'Ambiente ---
-echo "Job ID: $SLURM_JOB_ID"
-echo "Job Name: $SLURM_JOB_NAME"
-echo "Running on host: $(hostname)"
-echo "Allocated GPUs: $CUDA_VISIBLE_DEVICES" # SLURM imposta questa variabile
+# Load necessary modules
+module purge
+module load python/3.9
+module load cuda/11.8
+module load cudnn/8.2.4
 
-# Naviga alla directory del progetto
-# Assicurati che questo percorso sia corretto sul file system di Snellius
-PROJECT_DIR="$HOME/Reiforcement_Learning/Final_assignment/DARL_PongTennis" # Modifica se necessario
-cd $PROJECT_DIR
-echo "Current directory: $(pwd)"
+# Ensure pip is up-to-date
+python -m ensurepip --default-pip
+# python -m pip install --upgrade --user pip
 
-# Carica i moduli necessari per Snellius (ESEMPI - ADATTARE!)
-echo "Loading modules..."
-module purge # Pulisce i moduli caricati
-module load 2023 # O l'anno/toolchain rilevante per Snellius
-module load Python/3.9.16-GCCcore-12.3.0 # ESEMPIO: Trova la versione Python corretta su Snellius
-module load CUDA/12.2.0 # ESEMPIO: Trova la versione CUDA corretta, compatibile con il tuo TensorFlow
-# Potrebbe essere necessario caricare anche cuDNN o un modulo Anaconda/Miniconda se non usi Python di sistema
-echo "Modules loaded."
-
-# Attiva l'ambiente Conda
-# Assicurati che il percorso al tuo ambiente Conda sia corretto
-CONDA_ENV_NAME="reinforcement_learning"
-# Modifica il percorso se la tua installazione di conda o il nome dell'ambiente sono diversi
-CONDA_ENV_PATH="$HOME/.conda/envs/$CONDA_ENV_NAME" # Assumendo che conda sia in $HOME/.conda
-if [ -d "$CONDA_ENV_PATH" ]; then
-    echo "Activating Conda environment: $CONDA_ENV_NAME"
-    source "$CONDA_ENV_PATH/bin/activate"
-else
-    echo "ERROR: Conda environment path not found: $CONDA_ENV_PATH"
-    exit 1
-fi
-
-# Verifica attivazione ambiente
-if [ "$CONDA_DEFAULT_ENV" != "$CONDA_ENV_NAME" ]; then
-    echo "ERROR: Failed to activate Conda environment $CONDA_ENV_NAME."
-    echo "CONDA_DEFAULT_ENV is $CONDA_DEFAULT_ENV"
-    exit 1
-fi
-echo "Conda environment '$CONDA_DEFAULT_ENV' activated successfully."
-
-# --- Installazione delle Dipendenze ---
-echo "Installing/Verifying dependencies from requirements.txt..."
-pip install -r requirements.txt
-if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to install dependencies from requirements.txt."
-    exit 1
-fi
-echo "Dependencies installed/verified."
-
-# --- Esecuzione dello Script ---
-echo "Running Python training script (Pong-v0_A2C.py)..."
-# Assicurati che lo script Pong-v0_A2C.py sia configurato per usare tutte le GPU allocate
-# (ad es. con tf.distribute.MirroredStrategy e senza impostare CUDA_VISIBLE_DEVICES manualmente nello script)
+# Run the training script (assuming TensorFlow)
 python Pong-v0_A2C.py
 
-# Controlla il codice di uscita dello script Python
-if [ $? -eq 0 ]; then
-    echo "Python script completed successfully."
-else
-    echo "ERROR: Python script exited with status $?."
-fi
+# Force reinstall all dependencies and resolve conflicts
+#pip install --upgrade --force-reinstall --no-cache-dir -r requirements.txt
 
-echo "Job finished."
+# Run the training script
+#export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+#torchrun --nproc_per_node=2  Pong-v0_A2C.py
