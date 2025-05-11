@@ -1,6 +1,38 @@
+# Existing rules
 checkpoints_/
 checkpoints_prova2/
 checkpoints/
 models/
 Results_A2C/
 
+# Python
+__pycache__/
+*.py[cod]
+*.env
+.env
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Log files (if not already covered by Results_A2C/)
+# *.log
+
+# Large data files (if you have any not meant for version control)
+# data/*.csv
+# data/*.pkl
