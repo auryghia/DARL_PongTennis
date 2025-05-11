@@ -3,7 +3,8 @@ from models.encoder import Encoder
 from models.decoder import Decoder
 import torch
 import gymnasium as gym
-from stable_baselines3.common.vec_env import DummyVecEnv
+from stable_baselines3.common.vec_env import DummyVecEnv, VecFrameStack
+
 from ale_py import ALEInterface
 import ale_py
 
@@ -14,12 +15,14 @@ env = gym.make("ALE/Pong-v5")
 
 print("Environment loaded successfully!")
 
+N_STACK_FRAMES = 4
+
 
 def main():
     latent_dim = 128
-    total_timesteps = 1_000_000
+    total_timesteps = 10_000_000
     num_frames = 100_000
-    model_save_path = "checkpoints_/pong_a2c.zip"
+    model_save_path = "checkpoints_prova2\pong_a2c_ckpt.zip"
     data_save_file = "data/pong_frames.pt"
 
     encoder = Encoder(latent_dim=latent_dim)
@@ -30,16 +33,16 @@ def main():
     decoder.to(device)
 
     env = DummyVecEnv([make_env])
+    stacked_env = VecFrameStack(env, n_stack=N_STACK_FRAMES)
 
     print("Inizio dell'addestramento dell'agente...")
 
     model = train_agent(
-        env,
+        stacked_env,
         existing_model=True,
         total_timesteps=total_timesteps,
         save_path=model_save_path,
         use_gpu=True,
-        n_stack=4,
     )
     print(f"Modello salvato in: {model_save_path}")
 

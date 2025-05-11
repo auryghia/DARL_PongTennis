@@ -43,12 +43,13 @@ def train_agent(
     save_path="checkpoints_/pong_a2c.zip",
     checkpoint_interval=100_000,
     use_gpu: bool = True,
-    n_stack: int = 4,
 ):
-    log_dir = "checkpoints_/a2c_pong_training_logs/"
+
+    log_dir = "checkpoints_prova2/logs/"
+
     os.makedirs(log_dir, exist_ok=True)
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
-    model_path = "checkpoints_\pong_a2c_ckpt_1500000.zip"
+    model_path = "checkpoints_prova2\pong_a2c_ckpt_ckpt_11300000.zip"
 
     if use_gpu and torch.cuda.is_available():
         current_device = torch.device("cuda")
@@ -71,10 +72,15 @@ def train_agent(
         model = A2C(
             "CnnPolicy",
             env,
+            learning_rate=5e-5,
+            n_steps=15,
+            gae_lambda=0.95,
+            use_rms_prop=True,
+            max_grad_norm=0.5,
             verbose=1,
             tensorboard_log=log_dir,
             device=current_device,
-            n_stack=n_stack,
+            # n_stack=n_stack,
             # You might want to ensure other A2C parameters are consistent
             # e.g., learning_rate, n_steps, gamma, etc.
         )
