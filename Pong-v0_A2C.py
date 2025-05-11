@@ -3,7 +3,7 @@
 
 import os
 
-# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 import random
 import gym
 import pylab
@@ -106,35 +106,15 @@ class A2CAgent:
             self.Save_Path, self.path + "_log.txt"
         )  # Path for the log file
 
-        # Initialize MirroredStrategy BEFORE model creation
-        self.strategy = tf.distribute.MirroredStrategy()
-        print(
-            f"Number of devices for MirroredStrategy: {self.strategy.num_replicas_in_sync}"
-        )
-        if self.strategy.num_replicas_in_sync == 0:
-            print(
-                "WARNING: MirroredStrategy found 0 devices. GPU training might not occur."
-            )
-            # Fallback to default strategy if no GPUs are found by MirroredStrategy
-            # This can happen if TensorFlow doesn't see the GPUs SLURM allocated.
-            self.strategy = tf.distribute.get_strategy()
-        # Create and compile models WITHIN the strategy scope
-        with self.strategy.scope():
-            # Create Actor-Critic network model
-            # This will now correctly use the strategy for distributed training
-            self.Actor, self.Critic = OurModel(
-                input_shape=self.state_size, action_space=self.action_size, lr=self.lr
-            )
-            self.Actor.compile(
-                loss="categorical_crossentropy",
-                optimizer=RMSprop(learning_rate=self.lr),
-            )
-            self.Critic.compile(loss="mse", optimizer=RMSprop(learning_rate=self.lr))
-            print("Actor and Critic models compiled under strategy scope.")
-
         self.Actor, self.Critic = OurModel(
             input_shape=self.state_size, action_space=self.action_size, lr=self.lr
         )
+        self.Actor.compile(
+            loss="categorical_crossentropy",
+            optimizer=RMSprop(learning_rate=self.lr),
+        )
+        self.Critic.compile(loss="mse", optimizer=RMSprop(learning_rate=self.lr))
+        print("Actor and Critic models compiled under strategy scope.")
 
         # Initialize log file with headers
         with open(self.log_file_path, "w") as f:
