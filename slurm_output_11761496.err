@@ -1,0 +1,134 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.2"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.2"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cudnn/8.1-cuda11.2"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cudnn/8.1-cuda11.2"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+2025-05-11 16:34:29.988453: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-11 16:34:30.265859: I tensorflow/core/util/port.cc:104] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-05-11 16:34:30.315135: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2025-05-11 16:34:30.315189: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.2 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 8, in <module>
+    import tensorflow as tf
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/__init__.py", line 37, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/__init__.py", line 37, in <module>
+    from tensorflow.python.eager import context
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/eager/context.py", line 34, in <module>
+    from tensorflow.python.client import pywrap_tf_session
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/client/pywrap_tf_session.py", line 19, in <module>
+    from tensorflow.python.client._pywrap_tf_session import *
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.2 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 8, in <module>
+    import tensorflow as tf
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/__init__.py", line 37, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/__init__.py", line 42, in <module>
+    from tensorflow.python import data
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/__init__.py", line 21, in <module>
+    from tensorflow.python.data import experimental
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/__init__.py", line 96, in <module>
+    from tensorflow.python.data.experimental import service
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/service/__init__.py", line 419, in <module>
+    from tensorflow.python.data.experimental.ops.data_service_ops import distribute
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/ops/data_service_ops.py", line 22, in <module>
+    from tensorflow.python.data.experimental.ops import compression_ops
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/ops/compression_ops.py", line 16, in <module>
+    from tensorflow.python.data.util import structure
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/util/structure.py", line 22, in <module>
+    from tensorflow.python.data.util import nest
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/util/nest.py", line 34, in <module>
+    from tensorflow.python.framework import sparse_tensor as _sparse_tensor
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/framework/sparse_tensor.py", line 24, in <module>
+    from tensorflow.python.framework import constant_op
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 25, in <module>
+    from tensorflow.python.eager import execute
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 21, in <module>
+    from tensorflow.python.framework import dtypes
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/framework/dtypes.py", line 29, in <module>
+    from tensorflow.python.lib.core import _pywrap_bfloat16
+AttributeError: _ARRAY_API not found
+ImportError: numpy.core._multiarray_umath failed to import
+ImportError: numpy.core.umath failed to import
+Traceback (most recent call last):
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 8, in <module>
+    import tensorflow as tf
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/__init__.py", line 37, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/__init__.py", line 42, in <module>
+    from tensorflow.python import data
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/__init__.py", line 21, in <module>
+    from tensorflow.python.data import experimental
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/__init__.py", line 96, in <module>
+    from tensorflow.python.data.experimental import service
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/service/__init__.py", line 419, in <module>
+    from tensorflow.python.data.experimental.ops.data_service_ops import distribute
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/ops/data_service_ops.py", line 22, in <module>
+    from tensorflow.python.data.experimental.ops import compression_ops
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/experimental/ops/compression_ops.py", line 16, in <module>
+    from tensorflow.python.data.util import structure
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/util/structure.py", line 22, in <module>
+    from tensorflow.python.data.util import nest
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/data/util/nest.py", line 34, in <module>
+    from tensorflow.python.framework import sparse_tensor as _sparse_tensor
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/framework/sparse_tensor.py", line 24, in <module>
+    from tensorflow.python.framework import constant_op
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 25, in <module>
+    from tensorflow.python.eager import execute
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 21, in <module>
+    from tensorflow.python.framework import dtypes
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/framework/dtypes.py", line 34, in <module>
+    _np_bfloat16 = _pywrap_bfloat16.TF_bfloat16_type()
+TypeError: Unable to convert function return value to a Python type! The signature was
+	() -> handle

@@ -2,10 +2,7 @@
 # Tutorial written for - Tensorflow 1.15, Keras 2.2.4
 
 import os
-
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 import random
-import gym
 import pylab
 import numpy as np
 import tensorflow as tf
@@ -109,13 +106,7 @@ class A2CAgent:
         self.Actor, self.Critic = OurModel(
             input_shape=self.state_size, action_space=self.action_size, lr=self.lr
         )
-        self.Actor.compile(
-            loss="categorical_crossentropy",
-            optimizer=RMSprop(learning_rate=self.lr),
-        )
-        self.Critic.compile(loss="mse", optimizer=RMSprop(learning_rate=self.lr))
-        print("Actor and Critic models compiled under strategy scope.")
-
+        
         # Initialize log file with headers
         with open(self.log_file_path, "w") as f:
             f.write("Episode,Score,Average_Score,Actor_Loss,Critic_Loss\n")

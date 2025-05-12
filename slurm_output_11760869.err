@@ -1,0 +1,157 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cudnn/8.2.4"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cudnn/8.2.4"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+WARNING: Value for scheme.platlib does not match. Please report this to <https://github.com/pypa/pip/issues/10151>
+distutils: /home/apiaghiardelli/.local/lib/python3.9/site-packages
+sysconfig: /home/apiaghiardelli/.local/lib64/python3.9/site-packages
+WARNING: Additional context:
+user = True
+home = None
+root = None
+prefix = None
+2025-05-11 15:50:19.736658: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-05-11 15:50:19.854039: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746971419.896148 3306819 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1746971419.910903 3306819 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1746971419.990533 3306819 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746971419.990591 3306819 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746971419.990600 3306819 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746971419.990606 3306819 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-05-11 15:50:19.998227: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+A.L.E: Arcade Learning Environment (version 0.11.0+dfae0bd)
+[Powered by Stella]
+A.L.E: Arcade Learning Environment (version 0.11.0+dfae0bd)
+[Powered by Stella]
+/home/apiaghiardelli/.local/lib/python3.9/site-packages/keras/src/layers/convolutional/base_conv.py:107: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+I0000 00:00:1746971424.410614 3306819 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38484 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:ca:00.0, compute capability: 8.0
+2025-05-11 15:50:24.945153: W external/local_xla/xla/service/gpu/llvm_gpu_backend/default/nvptx_libdevice_path.cc:40] Can't find libdevice directory ${CUDA_DIR}/nvvm/libdevice. This may result in compilation or runtime failures, if the program we try to run uses routines from libdevice.
+Searched for CUDA in the following directories:
+  ./cuda_sdk_lib
+  Pong-v0_A2C.py.runfiles/cuda_nvcc
+  Pong-v0/cuda_nvcc
+  
+  /usr/local/cuda
+  /opt/cuda
+  /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc
+  /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc
+  /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda
+  /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../..
+  /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../..
+  .
+You can choose the search directory by setting xla_gpu_cuda_data_dir in HloModule's DebugOptions.  For most apps, setting the environment variable XLA_FLAGS=--xla_gpu_cuda_data_dir=/path/to/cuda will work.
+2025-05-11 15:50:24.969503: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.972100: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.974693: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.977291: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.979897: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.982499: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.985099: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.987690: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.990286: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.992887: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.995480: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:24.998072: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+2025-05-11 15:50:25.000670: W tensorflow/compiler/mlir/tools/kernel_gen/transforms/gpu_kernel_to_blob_pass.cc:187] Failed to compile generated PTX with ptxas. Falling back to compilation by driver.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1746971425.670651 3306888 service.cc:152] XLA service 0x15176c002e30 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1746971425.670711 3306888 service.cc:160]   StreamExecutor device (0): NVIDIA A100-SXM4-40GB, Compute Capability 8.0
+2025-05-11 15:50:25.687144: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1746971425.715571 3306888 cuda_dnn.cc:529] Loaded cuDNN version 90501
+2025-05-11 15:50:25.926609: W external/local_xla/xla/stream_executor/gpu/redzone_allocator_kernel_cuda.cc:135] NOT_FOUND: Couldn't find a suitable version of ptxas. The following locations were considered: bin/ptxas, /home/apiaghiardelli/.local/bin/ptxas, /home/apiaghiardelli/bin/ptxas, /usr/hpc/bin/ptxas, /opt/neovim/current/bin/ptxas, /opt/ear/current/bin/ptxas, /usr/local/bin/ptxas, /usr/bin/ptxas, /usr/local/sbin/ptxas, /usr/sbin/ptxas, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/ptxas, Pong-v0/cuda_nvcc/bin/ptxas, bin/ptxas, /usr/local/cuda/bin/ptxas, /opt/cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/ptxas
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2025-05-11 15:50:26.170099: W tensorflow/core/framework/op_kernel.cc:1857] OP_REQUIRES failed at xla_ops.cc:591 : UNAVAILABLE: No PTX compilation provider is available. Neither ptxas/nvlink nor nvjtlink is available. As a fallback you can enable JIT compilation in the CUDA driver via the flag `--xla_gpu_unsafe_fallback_to_driver_on_ptxas_not_found`. Details: 
+ - Has NvJitLink support: LibNvJitLink is not supported (disabled during compilation).
+ - Has NvPtxCompiler support: LibNvPtxCompiler is not supported (disabled during compilation).
+ - Parallel compilation support is desired: 0
+ - ptxas_path: Couldn't find a suitable version of ptxas. The following locations were considered: ./cuda_sdk_lib/bin/ptxas, /home/apiaghiardelli/.local/bin/ptxas, /home/apiaghiardelli/bin/ptxas, /usr/hpc/bin/ptxas, /opt/neovim/current/bin/ptxas, /opt/ear/current/bin/ptxas, /usr/local/bin/ptxas, /usr/bin/ptxas, /usr/local/sbin/ptxas, /usr/sbin/ptxas, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/ptxas, Pong-v0/cuda_nvcc/bin/ptxas, bin/ptxas, /usr/local/cuda/bin/ptxas, /opt/cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/ptxas
+ - ptxas_version: Couldn't find a suitable version of ptxas. The following locations were considered: ./cuda_sdk_lib/bin/ptxas, /home/apiaghiardelli/.local/bin/ptxas, /home/apiaghiardelli/bin/ptxas, /usr/hpc/bin/ptxas, /opt/neovim/current/bin/ptxas, /opt/ear/current/bin/ptxas, /usr/local/bin/ptxas, /usr/bin/ptxas, /usr/local/sbin/ptxas, /usr/sbin/ptxas, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/ptxas, Pong-v0/cuda_nvcc/bin/ptxas, bin/ptxas, /usr/local/cuda/bin/ptxas, /opt/cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/ptxas
+ - nvlink_path: Couldn't find a suitable version of nvlink. The following locations were considered: ./cuda_sdk_lib/bin/nvlink, /home/apiaghiardelli/.local/bin/nvlink, /home/apiaghiardelli/bin/nvlink, /usr/hpc/bin/nvlink, /opt/neovim/current/bin/nvlink, /opt/ear/current/bin/nvlink, /usr/local/bin/nvlink, /usr/bin/nvlink, /usr/local/sbin/nvlink, /usr/sbin/nvlink, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/nvlink, Pong-v0/cuda_nvcc/bin/nvlink, bin/nvlink, /usr/local/cuda/bin/nvlink, /opt/cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/nvlink
+ - nvlink_version: Couldn't find a suitable version of nvlink. The following locations were considered: ./cuda_sdk_lib/bin/nvlink, /home/apiaghiardelli/.local/bin/nvlink, /home/apiaghiardelli/bin/nvlink, /usr/hpc/bin/nvlink, /opt/neovim/current/bin/nvlink, /opt/ear/current/bin/nvlink, /usr/local/bin/nvlink, /usr/bin/nvlink, /usr/local/sbin/nvlink, /usr/sbin/nvlink, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/nvlink, Pong-v0/cuda_nvcc/bin/nvlink, bin/nvlink, /usr/local/cuda/bin/nvlink, /opt/cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/nvlink
+ - Driver compilation is enabled: 0
+
+2025-05-11 15:50:26.170167: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: UNAVAILABLE: No PTX compilation provider is available. Neither ptxas/nvlink nor nvjtlink is available. As a fallback you can enable JIT compilation in the CUDA driver via the flag `--xla_gpu_unsafe_fallback_to_driver_on_ptxas_not_found`. Details: 
+ - Has NvJitLink support: LibNvJitLink is not supported (disabled during compilation).
+ - Has NvPtxCompiler support: LibNvPtxCompiler is not supported (disabled during compilation).
+ - Parallel compilation support is desired: 0
+ - ptxas_path: Couldn't find a suitable version of ptxas. The following locations were considered: ./cuda_sdk_lib/bin/ptxas, /home/apiaghiardelli/.local/bin/ptxas, /home/apiaghiardelli/bin/ptxas, /usr/hpc/bin/ptxas, /opt/neovim/current/bin/ptxas, /opt/ear/current/bin/ptxas, /usr/local/bin/ptxas, /usr/bin/ptxas, /usr/local/sbin/ptxas, /usr/sbin/ptxas, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/ptxas, Pong-v0/cuda_nvcc/bin/ptxas, bin/ptxas, /usr/local/cuda/bin/ptxas, /opt/cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/ptxas
+ - ptxas_version: Couldn't find a suitable version of ptxas. The following locations were considered: ./cuda_sdk_lib/bin/ptxas, /home/apiaghiardelli/.local/bin/ptxas, /home/apiaghiardelli/bin/ptxas, /usr/hpc/bin/ptxas, /opt/neovim/current/bin/ptxas, /opt/ear/current/bin/ptxas, /usr/local/bin/ptxas, /usr/bin/ptxas, /usr/local/sbin/ptxas, /usr/sbin/ptxas, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/ptxas, Pong-v0/cuda_nvcc/bin/ptxas, bin/ptxas, /usr/local/cuda/bin/ptxas, /opt/cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/ptxas
+ - nvlink_path: Couldn't find a suitable version of nvlink. The following locations were considered: ./cuda_sdk_lib/bin/nvlink, /home/apiaghiardelli/.local/bin/nvlink, /home/apiaghiardelli/bin/nvlink, /usr/hpc/bin/nvlink, /opt/neovim/current/bin/nvlink, /opt/ear/current/bin/nvlink, /usr/local/bin/nvlink, /usr/bin/nvlink, /usr/local/sbin/nvlink, /usr/sbin/nvlink, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/nvlink, Pong-v0/cuda_nvcc/bin/nvlink, bin/nvlink, /usr/local/cuda/bin/nvlink, /opt/cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/nvlink
+ - nvlink_version: Couldn't find a suitable version of nvlink. The following locations were considered: ./cuda_sdk_lib/bin/nvlink, /home/apiaghiardelli/.local/bin/nvlink, /home/apiaghiardelli/bin/nvlink, /usr/hpc/bin/nvlink, /opt/neovim/current/bin/nvlink, /opt/ear/current/bin/nvlink, /usr/local/bin/nvlink, /usr/bin/nvlink, /usr/local/sbin/nvlink, /usr/sbin/nvlink, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/nvlink, Pong-v0/cuda_nvcc/bin/nvlink, bin/nvlink, /usr/local/cuda/bin/nvlink, /opt/cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/nvlink
+ - Driver compilation is enabled: 0
+
+	 [[{{node StatefulPartitionedCall}}]]
+Traceback (most recent call last):
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 334, in <module>
+    agent.run()
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 283, in run
+    action = self.act(state)
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 132, in act
+    prediction = self.Actor.predict(state, verbose=0)[0]
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 53, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnavailableError: Graph execution error:
+
+Detected at node StatefulPartitionedCall defined at (most recent call last):
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 334, in <module>
+
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 283, in run
+
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 132, in act
+
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 117, in error_handler
+
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/keras/src/backend/tensorflow/trainer.py", line 560, in predict
+
+  File "/home/apiaghiardelli/.local/lib/python3.9/site-packages/keras/src/backend/tensorflow/trainer.py", line 259, in one_step_on_data_distributed
+
+No PTX compilation provider is available. Neither ptxas/nvlink nor nvjtlink is available. As a fallback you can enable JIT compilation in the CUDA driver via the flag `--xla_gpu_unsafe_fallback_to_driver_on_ptxas_not_found`. Details: 
+ - Has NvJitLink support: LibNvJitLink is not supported (disabled during compilation).
+ - Has NvPtxCompiler support: LibNvPtxCompiler is not supported (disabled during compilation).
+ - Parallel compilation support is desired: 0
+ - ptxas_path: Couldn't find a suitable version of ptxas. The following locations were considered: ./cuda_sdk_lib/bin/ptxas, /home/apiaghiardelli/.local/bin/ptxas, /home/apiaghiardelli/bin/ptxas, /usr/hpc/bin/ptxas, /opt/neovim/current/bin/ptxas, /opt/ear/current/bin/ptxas, /usr/local/bin/ptxas, /usr/bin/ptxas, /usr/local/sbin/ptxas, /usr/sbin/ptxas, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/ptxas, Pong-v0/cuda_nvcc/bin/ptxas, bin/ptxas, /usr/local/cuda/bin/ptxas, /opt/cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/ptxas
+ - ptxas_version: Couldn't find a suitable version of ptxas. The following locations were considered: ./cuda_sdk_lib/bin/ptxas, /home/apiaghiardelli/.local/bin/ptxas, /home/apiaghiardelli/bin/ptxas, /usr/hpc/bin/ptxas, /opt/neovim/current/bin/ptxas, /opt/ear/current/bin/ptxas, /usr/local/bin/ptxas, /usr/bin/ptxas, /usr/local/sbin/ptxas, /usr/sbin/ptxas, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/ptxas, Pong-v0/cuda_nvcc/bin/ptxas, bin/ptxas, /usr/local/cuda/bin/ptxas, /opt/cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/ptxas, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/ptxas
+ - nvlink_path: Couldn't find a suitable version of nvlink. The following locations were considered: ./cuda_sdk_lib/bin/nvlink, /home/apiaghiardelli/.local/bin/nvlink, /home/apiaghiardelli/bin/nvlink, /usr/hpc/bin/nvlink, /opt/neovim/current/bin/nvlink, /opt/ear/current/bin/nvlink, /usr/local/bin/nvlink, /usr/bin/nvlink, /usr/local/sbin/nvlink, /usr/sbin/nvlink, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/nvlink, Pong-v0/cuda_nvcc/bin/nvlink, bin/nvlink, /usr/local/cuda/bin/nvlink, /opt/cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/nvlink
+ - nvlink_version: Couldn't find a suitable version of nvlink. The following locations were considered: ./cuda_sdk_lib/bin/nvlink, /home/apiaghiardelli/.local/bin/nvlink, /home/apiaghiardelli/bin/nvlink, /usr/hpc/bin/nvlink, /opt/neovim/current/bin/nvlink, /opt/ear/current/bin/nvlink, /usr/local/bin/nvlink, /usr/bin/nvlink, /usr/local/sbin/nvlink, /usr/sbin/nvlink, Pong-v0_A2C.py.runfiles/cuda_nvcc/bin/nvlink, Pong-v0/cuda_nvcc/bin/nvlink, bin/nvlink, /usr/local/cuda/bin/nvlink, /opt/cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../nvidia/cuda_nvcc/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../cuda/bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../bin/nvlink, /home/apiaghiardelli/.local/lib/python3.9/site-packages/tensorflow/python/platform/../../../../../../../bin/nvlink
+ - Driver compilation is enabled: 0
+
+	 [[{{node StatefulPartitionedCall}}]] [Op:__inference_one_step_on_data_distributed_394]

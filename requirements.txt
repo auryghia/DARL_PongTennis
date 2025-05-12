@@ -1,8 +1,9 @@
-tensorflow>=2.0
-numpy
+tensorflow==2.13.0
+numpy==1.24.3
 matplotlib
 opencv-python
 gymnasium
 ale-py
 stable-baselines3
-torch
+torchvision==0.15+cu118
+torch==2.0.1+cu118

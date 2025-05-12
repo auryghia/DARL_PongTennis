@@ -1,0 +1,61 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cudnn/8.6"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cudnn/8.6"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/usr/bin/which: no nvcc in (/usr/local/cuda-12.2/bin:/home/apiaghiardelli/.local/bin:/home/apiaghiardelli/bin:/usr/hpc/bin:/opt/neovim/current/bin:/opt/ear/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+/usr/bin/which: no ptxas in (/usr/local/cuda-12.2/bin:/home/apiaghiardelli/.local/bin:/home/apiaghiardelli/bin:/usr/hpc/bin:/opt/neovim/current/bin:/opt/ear/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+  DEPRECATION: Building 'lit' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'lit'. Discussion can be found at https://github.com/pypa/pip/issues/6334
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+tensorflow 2.13.0 requires numpy<=1.24.3,>=1.22, but you have numpy 1.26.3 which is incompatible.
+tensorflow 2.13.0 requires typing-extensions<4.6.0,>=3.6.6, but you have typing-extensions 4.12.2 which is incompatible.
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+nibabel 5.3.2 requires typing-extensions>=4.6; python_version < "3.13", but you have typing-extensions 4.5.0 which is incompatible.
+torchvision 0.15.2+cu118 requires torch==2.0.1, but you have torch 2.1.2 which is incompatible.
+2025-05-11 17:22:42.213722: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-05-11 17:22:42.238892: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-05-11 17:22:42.399525: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-05-11 17:22:42.400161: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-11 17:22:43.263704: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+A.L.E: Arcade Learning Environment (version 0.11.0+dfae0bd)
+[Powered by Stella]
+A.L.E: Arcade Learning Environment (version 0.11.0+dfae0bd)
+[Powered by Stella]
+2025-05-11 17:22:45.350906: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+/home/apiaghiardelli/.local/lib/python3.9/site-packages/keras/src/engine/training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+/var/spool/slurm/slurmd/job11761889/slurm_script: line 47: 3290318 Killed                  python Pong-v0_A2C.py
+slurmstepd: error: Detected 1 oom_kill event in StepId=11761889.batch. Some of the step tasks have been OOM Killed.

@@ -14,19 +14,39 @@
 # Load necessary modules
 module purge
 module load python/3.9
+module load 2022
 module load cuda/11.8
-module load cudnn/8.2.4
+module load cudnn/8.6
+export PATH=/usr/local/cuda-12.2/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
 
-# Ensure pip is up-to-date
-python -m ensurepip --default-pip
-# python -m pip install --upgrade --user pip
+which nvcc
+which ptxas
+nvidia-smi
+# Ensure pip is up-to-date (usually not strictly needed if Python module is well-maintained)
+# python -m ensurepip --default-pip # Often not needed
+# python -m pip install --upgrade --user pip # Be cautious with --user in HPC shared environmen
+echo "Starting dependency installation..."
 
-# Run the training script (assuming TensorFlow)
+# Install PyTorch + torchvision with CUDA
+pip install --force-reinstall --no-cache-dir torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://download.pytorch.org/whl/cu118
+
+# Install the rest
+pip install --upgrade --force-reinstall --no-cache-dir \
+    tensorflow==2.13.0 \
+    numpy==1.24.3 \
+    matplotlib \
+    opencv-python \
+    gymnasium \
+    ale-py \
+    stable-baselines3
+
+echo "Dependency installation finished."
+
+echo "Running Python script..."
+# Run the training script
 python Pong-v0_A2C.py
-
-# Force reinstall all dependencies and resolve conflicts
-#pip install --upgrade --force-reinstall --no-cache-dir -r requirements.txt
-
+echo "Python script finished."
 # Run the training script
 #export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 #torchrun --nproc_per_node=2  Pong-v0_A2C.py

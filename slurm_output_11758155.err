@@ -1,0 +1,48 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cudnn/8.2.4"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cudnn/8.2.4"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+WARNING: Value for scheme.platlib does not match. Please report this to <https://github.com/pypa/pip/issues/10151>
+distutils: /home/apiaghiardelli/.local/lib/python3.9/site-packages
+sysconfig: /home/apiaghiardelli/.local/lib64/python3.9/site-packages
+WARNING: Additional context:
+user = True
+home = None
+root = None
+prefix = None
+Traceback (most recent call last):
+  File "/gpfs/home6/apiaghiardelli/DARL_PongTennis/Pong-v0_A2C.py", line 8, in <module>
+    import gym
+ModuleNotFoundError: No module named 'gym'
