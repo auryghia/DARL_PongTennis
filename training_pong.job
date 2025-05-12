@@ -1,20 +1,21 @@
 #!/bin/bash
-#SBATCH --job-name=TrainModelCPU
-#SBATCH --output=slurm_cpu_output_%j.out
-#SBATCH --error=slurm_cpu_output_%j.err
-#SBATCH --time=08:00:00
-#SBATCH --partition=rome # Or any other CPU partition available on Snellius (e.g., normal, fat)
-#SBATCH --cpus-per-task=8 # Request 8 CPU cores for your task
-#SBATCH --mem=128G          # Memory request remains the same, adjust if needed for CPU
+#SBATCH --job-name=TrainModelGPU       # Nome del job modificato per GPU
+#SBATCH --output=slurm_gpu_output_%j.out # File di output per GPU
+#SBATCH --error=slurm_gpu_output_%j.err  # File di errore per GPU
+#SBATCH --time=01:00:00                # Aumentato il tempo, l'addestramento su GPU potrebbe richiederne di più
+#SBATCH --partition=gpu_a100           # Partizione GPU (gpu_a100 è comune, verifica le disponibili)
+#SBATCH --gres=gpu:1                   # Richiesta di 1 GPU
+#SBATCH --cpus-per-task=8              # CPU per task, possono essere utili per pre-processing
+#SBATCH --mem=128G                      # Memoria RAM, potrebbe essere necessaria meno se i dati sono su GPU
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 
 # Load necessary modules
 module purge
 module load python/3.9
-# module load 2022
-# module load cuda/11.8
-# module load cudnn/8.6
+module load 2022
+module load cuda/11.8
+module load cudnn/8.6
 # export PATH=/usr/local/cuda-12.2/bin:$PATH
 # export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
 
@@ -43,7 +44,7 @@ echo "Dependency installation finished."
 
 echo "Running Python script..."
 # Run the training script
-python Pong-v0_A2C.py
+python Pong-v0_A2C_prova2.py
 echo "Python script finished."
 # Run the training script
 #export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
