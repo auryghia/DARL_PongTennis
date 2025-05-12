@@ -1,53 +1,0 @@
-Sun May 11 17:11:51 2025       
-+-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 565.57.01              Driver Version: 565.57.01      CUDA Version: 12.7     |
-|-----------------------------------------+------------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
-|                                         |                        |               MIG M. |
-|=========================================+========================+======================|
-|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:32:00.0 Off |                    0 |
-| N/A   30C    P0             50W /  400W |       1MiB /  40960MiB |      0%      Default |
-|                                         |                        |             Disabled |
-+-----------------------------------------+------------------------+----------------------+
-                                                                                         
-+-----------------------------------------------------------------------------------------+
-| Processes:                                                                              |
-|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
-|        ID   ID                                                               Usage      |
-|=========================================================================================|
-|  No running processes found                                                             |
-+-----------------------------------------------------------------------------------------+
-Starting dependency installation...
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: tensorflow==2.13.0 in /gpfs/home6/apiaghiardelli/.local/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (2.13.0)
-Requirement already satisfied: numpy==1.24.3 in /gpfs/home6/apiaghiardelli/.local/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (1.24.3)
-Requirement already satisfied: matplotlib in /gpfs/home6/apiaghiardelli/.local/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (3.9.4)
-Requirement already satisfied: opencv-python in /gpfs/home6/apiaghiardelli/.local/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (4.11.0.86)
-Requirement already satisfied: gymnasium in /gpfs/home6/apiaghiardelli/.local/lib/python3.9/site-packages (from -r requirements.txt (line 5)) (1.0.0)
-Collecting gymnasium (from -r requirements.txt (line 5))
-  Downloading gymnasium-1.1.1-py3-none-any.whl.metadata (9.4 kB)
-Requirement already satisfied: ale-py in /gpfs/home6/apiaghiardelli/.local/lib/python3.9/site-packages (from -r requirements.txt (line 6)) (0.11.0)
-Requirement already satisfied: stable-baselines3 in /gpfs/home6/apiaghiardelli/.local/lib/python3.9/site-packages (from -r requirements.txt (line 7)) (2.4.1)
-Collecting stable-baselines3 (from -r requirements.txt (line 7))
-  Downloading stable_baselines3-2.6.0-py3-none-any.whl.metadata (4.8 kB)
-Dependency installation finished.
-Running Python script...
-episode: 0/1000, score: -21.0, average: -21.00 SAVING
- 1/31 [..............................] - ETA: 2s14/31 [============>.................] - ETA: 0s29/31 [===========================>..] - ETA: 0s31/31 [==============================] - 0s 4ms/step
-episode: 1/1000, score: -21.0, average: -21.00 SAVING
- 1/25 [>.............................] - ETA: 0s15/25 [=================>............] - ETA: 0s25/25 [==============================] - 0s 4ms/step
-
-JOB STATISTICS
-==============
-Job ID: 11761838
-Cluster: snellius
-User/Group: apiaghiardelli/apiaghiardelli
-State: CANCELLED (exit code 0)
-Nodes: 1
-Cores per node: 18
-CPU Utilized: 00:00:08
-CPU Efficiency: 0.38% of 00:34:48 core-walltime
-Job Wall-clock time: 00:01:56
-Memory Utilized: 1.28 GB
-Memory Efficiency: 2.00% of 64.00 GB (64.00 GB/node)

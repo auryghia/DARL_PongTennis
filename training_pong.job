@@ -1,15 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=TrainModel
-#SBATCH --output=slurm_output_%j.out
-#SBATCH --error=slurm_output_%j.err
+#SBATCH --job-name=TrainModelCPU
+#SBATCH --output=slurm_cpu_output_%j.out
+#SBATCH --error=slurm_cpu_output_%j.err
 #SBATCH --time=08:00:00
-#SBATCH --partition=gpu_a100
-#SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
+#SBATCH --partition=thin # Or any other CPU partition available on Snellius (e.g., normal, fat)
+#SBATCH --cpus-per-task=16 # Request 8 CPU cores for your task
+#SBATCH --mem=128G          # Memory request remains the same, adjust if needed for CPU
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1         # 4 GPUs per node
-
+#SBATCH --ntasks-per-node=1
 
 # Load necessary modules
 module purge

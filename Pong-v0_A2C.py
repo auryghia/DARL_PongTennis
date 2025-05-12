@@ -106,7 +106,7 @@ class A2CAgent:
         self.Actor, self.Critic = OurModel(
             input_shape=self.state_size, action_space=self.action_size, lr=self.lr
         )
-        
+
         # Initialize log file with headers
         with open(self.log_file_path, "w") as f:
             f.write("Episode,Score,Average_Score,Actor_Loss,Critic_Loss\n")
@@ -171,11 +171,11 @@ class A2CAgent:
 
     def load(self, Actor_name, Critic_name):
         self.Actor = load_model(Actor_name, compile=False)
-        # self.Critic = load_model(Critic_name, compile=False)
+        self.Critic = load_model(Critic_name, compile=False)
 
     def save(self):
         self.Actor.save(self.Model_name + "_Actor.h5")
-        # self.Critic.save(self.Model_name + '_Critic.h5')
+        self.Critic.save(self.Model_name + "_Critic.h5")
 
     pylab.figure(figsize=(18, 9))
 
