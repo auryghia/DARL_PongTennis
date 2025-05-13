@@ -154,7 +154,10 @@ class A2CAgent:
         self.critic_optimizer.step()
         self.critic_scheduler.step()
 
-        print(f"Actor Loss: {actor_loss.item()}, Critic Loss: {critic_loss.item()}")
+        print(
+            f"Actor Loss: {actor_loss.item()}, Critic Loss: {critic_loss.item()}",
+            flush=True,
+        )
 
         # # Debug gradients
         # for name, param in self.actor.named_parameters():
@@ -191,7 +194,7 @@ class A2CAgent:
             batch_actions.extend(action_list)
             batch_returns.extend(returns)
 
-            print(f"Episode: {episode}, Score: {score}")
+            print(f"Episode: {episode}, Score: {score}", flush=True)
 
             # Aggiorna ogni 10 episodi
             if (episode + 1) % 1 == 0:
