@@ -1,7 +1,7 @@
 import os
 import sys
 
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import torch
 import gymnasium as gym
@@ -25,7 +25,7 @@ print(f"Using device: {device}")
 
 
 def make_env(frame_skip=4, terminal_on_life_loss=True):
-    env = gym.make("ALE/Pong-v5")
+    env = gym.make("ALE/Pong-v5", render_mode="human")
     env = AtariWrapper(
         env,
         frame_skip=frame_skip,
@@ -46,7 +46,6 @@ def train_agent(
 ):
 
     log_dir = "checkpoints_prova2/logs/"
-
     os.makedirs(log_dir, exist_ok=True)
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     model_path = "checkpoints_prova2\pong_a2c_ckpt_ckpt_11300000.zip"
@@ -116,6 +115,7 @@ def train_agent(
 def collect_observations(
     env, model, encoder, decoder, num_frames=100_000, save_file="data/pong_frames.pt"
 ):
+
     obs_list = []
     latent_list = []
     obs = env.reset()

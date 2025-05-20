@@ -3,7 +3,8 @@ checkpoints_/
 checkpoints_prova2/
 checkpoints/
 models/
-Results_A2C/
+Check/
+ppo_params2/
 
 # Python
 __pycache__/

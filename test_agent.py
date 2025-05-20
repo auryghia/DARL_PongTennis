@@ -35,7 +35,7 @@ def test_agent(model_path, env, num_episodes=100, render="human", use_gpu=True):
             print("Testing on CPU.")
         current_device = torch.device("cpu")
 
-    model_path = "checkpoints_prova2\pong_a2c_ckpt_ckpt_16500000_steps.zip"
+    model_path = "ppo_params2\_ckpt_400000_steps.zip"
 
     try:
         model = A2C.load(model_path, env=env, device=current_device)
@@ -110,7 +110,7 @@ def test_agent(model_path, env, num_episodes=100, render="human", use_gpu=True):
 if __name__ == "__main__":
 
     print("\nInizio test...")
-    model_path = "checkpoints_prova2\pong_a2c_ckpt_ckpt_16500000_steps.zip"
+    model_path = "ppo_params2\_ckpt_400000_steps.zip"
 
     if not os.path.exists(model_path):
         print(

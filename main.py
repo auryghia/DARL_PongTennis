@@ -1,4 +1,4 @@
-from scripts.train_pong_agent import make_env, train_agent, collect_observations
+from scripts.train_pong_PPO import make_env, train_agent, collect_observations
 from models.encoder import Encoder
 from models.decoder import Decoder
 import torch
@@ -22,7 +22,7 @@ def main():
     latent_dim = 128
     total_timesteps = 10_000_000
     num_frames = 100_000
-    model_save_path = "checkpoints_prova2\pong_a2c_ckpt.zip"
+    model_save_path = "ppo_params2/"
     data_save_file = "data/pong_frames.pt"
 
     encoder = Encoder(latent_dim=latent_dim)
