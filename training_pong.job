@@ -44,7 +44,7 @@ echo "Dependency installation finished."
 
 echo "Running Python script..."
 # Run the training script
-python Pong-v0_A2C_prova2.py
+python main.py
 echo "Python script finished."
 # Run the training script
 #export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True

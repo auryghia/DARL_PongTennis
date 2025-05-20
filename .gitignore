@@ -6,6 +6,10 @@ models/
 Check/
 ppo_params2/
 
+# SLURM output and error files
+*.out
+*.err
+
 # Python
 __pycache__/
 *.py[cod]
